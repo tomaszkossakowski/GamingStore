@@ -1,3 +1,3 @@
 "# GamingStore" 
 
-![](https://media.giphy.com/media/13HgwGsXF0aiGY/giphy.gif)
+![](http://reactiongifs.com/?p=7416)

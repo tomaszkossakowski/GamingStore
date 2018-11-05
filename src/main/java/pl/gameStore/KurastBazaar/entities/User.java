@@ -43,4 +43,5 @@ public class User
 
     @Column(name = "password_changed")
     private Boolean passwordChanged;
+
 }

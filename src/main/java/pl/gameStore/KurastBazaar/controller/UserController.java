@@ -1,36 +1,51 @@
 package pl.gameStore.KurastBazaar.controller;
 
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
-import lombok.RequiredArgsConstructor;
 import pl.gameStore.KurastBazaar.entities.User;
 import pl.gameStore.KurastBazaar.service.UserService;
 
 
 @RestController
-@RequestMapping("/kurastbazaar/user")
-@RequiredArgsConstructor
+@RequestMapping(value="/kurastBazaar/user")
 public class UserController
 {
     @Autowired
     private UserService userService;
 
-    @PostMapping("/createuser")
-    public User createUser(User user)
+    @PostMapping(value="/create")
+    public User createUser(@RequestBody User user)
     {
         return userService.createUser(user);
     }
 
     @GetMapping("/user/{userId}")
-    public User getUserById(@PathVariable("userId") Integer userId)
+    public Optional<User> getUserById(@PathVariable("userId") Integer userId)
     {
-       return userService.getUserById(userId);
+        return userService.getUserById(userId);
     }
+
+    @GetMapping(value="user/allusers")
+    public Iterable<User>getAllUsers(){
+        return userService.getAllUsers();
+    }
+    @DeleteMapping(value="/user/{userId}")
+    public void deleteTicket(@PathVariable("userId")Integer userId){
+        userService.deleteUser(userId);
+    }
+
+//    @PutMapping(value="/user/{userId}/{newEmail:.+}")
+//    public User updateTicket(@PathVariable("userId")Integer userId,@PathVariable("newEmail")String newEmail){
+//        return userService.updateUser(userId,newEmail);
+//    }
 }

@@ -1,4 +1,4 @@
-package pl.gameStore.KurastBazaar;
+package pl.gameStore.KurastBazaar.application;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

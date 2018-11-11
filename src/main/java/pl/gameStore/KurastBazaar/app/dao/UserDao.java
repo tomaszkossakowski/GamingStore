@@ -1,8 +1,8 @@
-package pl.gameStore.KurastBazaar.dao;
+package pl.gameStore.KurastBazaar.app.dao;
 
 import org.springframework.data.repository.CrudRepository;
 
-import pl.gameStore.KurastBazaar.entities.User;
+import pl.gameStore.KurastBazaar.app.entities.User;
 
 
 public interface UserDao extends CrudRepository<User, Integer>

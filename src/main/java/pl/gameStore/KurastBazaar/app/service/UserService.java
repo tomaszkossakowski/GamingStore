@@ -1,12 +1,12 @@
-package pl.gameStore.KurastBazaar.service;
+package pl.gameStore.KurastBazaar.app.service;
 
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import pl.gameStore.KurastBazaar.dao.UserDao;
-import pl.gameStore.KurastBazaar.entities.User;
+import pl.gameStore.KurastBazaar.app.dao.UserDao;
+import pl.gameStore.KurastBazaar.app.entities.User;
 
 
 @Service

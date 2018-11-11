@@ -1,4 +1,4 @@
-package pl.gameStore.KurastBazaar.application;
+package pl.gameStore.KurastBazaar.app;
 
 import javax.sql.DataSource;
 
@@ -7,12 +7,12 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-import pl.gameStore.KurastBazaar.entities.User;
-import pl.gameStore.KurastBazaar.service.UserService;
+import pl.gameStore.KurastBazaar.app.entities.User;
+import pl.gameStore.KurastBazaar.app.service.UserService;
 
 
 @SpringBootApplication
-public class KurastBazaarApplication implements CommandLineRunner
+public class KurastBazaarManagmentAppApplication implements CommandLineRunner
 {
     @Autowired
     private UserService userService;
@@ -22,7 +22,7 @@ public class KurastBazaarApplication implements CommandLineRunner
 
     public static void main(String[] args)
     {
-        SpringApplication.run(KurastBazaarApplication.class, args);
+        SpringApplication.run(KurastBazaarManagmentAppApplication.class, args);
     }
 
     @Override

@@ -1,4 +1,4 @@
-package pl.gameStore.KurastBazaar.entities;
+package pl.gameStore.KurastBazaar.app.entities;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

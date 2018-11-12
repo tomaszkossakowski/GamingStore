@@ -38,6 +38,7 @@ public class UserController
     public Iterable<User>getAllUsers(){
         return userService.getAllUsers();
     }
+
     @DeleteMapping(value="/user/{userId}")
     public void deleteTicket(@PathVariable("userId")Integer userId){
         userService.deleteUser(userId);

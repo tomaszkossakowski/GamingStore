@@ -1,5 +1,7 @@
 package pl.gameStore.KurastBazaar.app.entities;
 
+import java.time.ZonedDateTime;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -8,13 +10,10 @@ import javax.persistence.Id;
 import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 
-//import lombok.Data;
-import org.springframework.context.annotation.Primary;
-
-import sun.util.calendar.LocalGregorianCalendar.Date;
+import lombok.Data;
 
 
-//@Data
+@Data
 @Entity
 @Table(name = "user")
 public class User
@@ -31,43 +30,21 @@ public class User
     @Column(name = "user_login")
     private String userLogin;
 
-    public Integer getUserId()
-    {
-        return userId;
-    }
+    @Column (name = "password")
+    private String password;
 
-    public void setUserId(final Integer userId)
-    {
-        this.userId = userId;
-    }
+    @Column (name = "user_info")
+    private String userInfo;
 
-    public String getUserName()
-    {
-        return userName;
-    }
+    @Column (name = "email")
+    private String email;
 
-    public void setUserName(final String userName)
-    {
-        this.userName = userName;
-    }
+    @Column (name = "creation_date")
+    private ZonedDateTime creationDate;
 
-    public String getUserLogin()
-    {
-        return userLogin;
-    }
+    @Column (name = "deleted")
+    private ZonedDateTime deleted;
 
-    public void setUserLogin(final String userLogin)
-    {
-        this.userLogin = userLogin;
-    }
-
-    @Override
-    public String toString()
-    {
-        return "User{" +
-            "userId=" + userId +
-            ", userName='" + userName + '\'' +
-            ", userLogin='" + userLogin + '\'' +
-            '}';
-    }
+    @Column (name = "password_changed")
+    private Boolean passwordChanged;
 }

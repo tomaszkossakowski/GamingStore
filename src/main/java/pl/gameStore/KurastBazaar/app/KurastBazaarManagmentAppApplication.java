@@ -1,5 +1,7 @@
 package pl.gameStore.KurastBazaar.app;
 
+import java.time.ZonedDateTime;
+
 import javax.sql.DataSource;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,6 +33,12 @@ public class KurastBazaarManagmentAppApplication implements CommandLineRunner
 
         user.setUserName("test");
         user.setUserLogin("login");
+        user.setPassword("password");
+        user.setUserInfo("information");
+        user.setEmail("email@email.pl");
+        user.setCreationDate(ZonedDateTime.now());
+        user.setDeleted(null);
+        user.setPasswordChanged(false);
 
 
         userService.createUser(user);

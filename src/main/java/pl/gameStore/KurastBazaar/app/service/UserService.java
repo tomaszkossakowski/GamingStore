@@ -5,10 +5,11 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import lombok.Data;
 import pl.gameStore.KurastBazaar.app.dao.UserDao;
 import pl.gameStore.KurastBazaar.app.entities.User;
 
-
+@Data
 @Service
 public class UserService
 {
@@ -34,11 +35,11 @@ public class UserService
     {
         userDao.deleteById(userId);
     }
-//
+
 //    public User updateUser(final Integer userId, final String newEmail)
 //    {
 //        Optional<User> userFromDb = userDao.findById(userId);
-//        userFromDb.orElse().setEmail();
+//        userFromDb.setEmail(newEmail);
 //        User updateUser = userDao.save(userFromDb);
 //        return updateUser;
 //    }

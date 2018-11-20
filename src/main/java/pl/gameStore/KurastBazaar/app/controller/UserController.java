@@ -16,13 +16,13 @@ import pl.gameStore.KurastBazaar.app.entities.User;
 
 
 @RestController
-@RequestMapping(value="/kurastBazaar/user")
+@RequestMapping("/kurastBazaar/user")
 public class UserController
 {
     @Autowired
     private UserService userService;
 
-    @PostMapping(value="/create")
+    @PostMapping("/create")
     public User createUser(@RequestBody User user)
     {
         return userService.createUser(user);
@@ -34,18 +34,18 @@ public class UserController
         return userService.getUserById(userId);
     }
 
-    @GetMapping(value="user/allusers")
+    @GetMapping("user/allusers")
     public Iterable<User>getAllUsers(){
         return userService.getAllUsers();
     }
 
-    @DeleteMapping(value="/user/{userId}")
+    @DeleteMapping("/user/{userId}")
     public void deleteTicket(@PathVariable("userId")Integer userId){
         userService.deleteUser(userId);
     }
 
-//    @PutMapping(value="/user/{userId}/{newEmail:.+}")
-//    public User updateTicket(@PathVariable("userId")Integer userId,@PathVariable("newEmail")String newEmail){
+//    @PutMapping("/user/{userId}/{newEmail:.+}")
+//    public User updateUser(@PathVariable("userId")Integer userId,@PathVariable("newEmail")String newEmail){
 //        return userService.updateUser(userId,newEmail);
 //    }
 }

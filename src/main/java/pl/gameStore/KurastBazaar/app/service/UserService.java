@@ -1,15 +1,11 @@
 package pl.gameStore.KurastBazaar.app.service;
 
-import java.util.Optional;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import lombok.Data;
 import pl.gameStore.KurastBazaar.app.dao.UserDao;
 import pl.gameStore.KurastBazaar.app.entities.User;
 
-@Data
 @Service
 public class UserService
 {
@@ -21,9 +17,9 @@ public class UserService
         return userDao.save(user);
     }
 
-    public Optional<User> getUserById(final Integer userId)
+    public User getUserById(final Integer userId)
     {
-        return userDao.findById(userId);
+        return userDao.findOne(userId);
     }
 
     public Iterable<User> getAllUsers()
@@ -33,15 +29,14 @@ public class UserService
 
     public void deleteUser(final Integer userId)
     {
-        userDao.deleteById(userId);
+        userDao.delete(userId);
     }
 
-//    public User updateUser(final Integer userId, final String newEmail)
-//    {
-//        Optional<User> userFromDb = userDao.findById(userId);
-//        userFromDb.setEmail(newEmail);
-//        User updateUser = userDao.save(userFromDb);
-//        return updateUser;
-//    }
+    public User updateUser(final Integer userId, final String newEmail)
+    {
+        User userFromDb = userDao.findOne(userId);
+        userFromDb.setEmail(newEmail);
+        return userDao.save(userFromDb);
+    }
 }
 

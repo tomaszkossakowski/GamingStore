@@ -1,38 +1,32 @@
 package pl.gameStore.KurastBazaar.app.service;
 
-import java.util.Optional;
-
+import lombok.Data;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import lombok.Data;
 import pl.gameStore.KurastBazaar.app.dao.UserDao;
 import pl.gameStore.KurastBazaar.app.entities.User;
 
+import java.util.Optional;
+
 @Data
 @Service
-public class UserService
-{
+public class UserService {
     @Autowired
     private UserDao userDao;
 
-    public User createUser(User user)
-    {
+    public User createUser(User user) {
         return userDao.save(user);
     }
 
-    public Optional<User> getUserById(final Integer userId)
-    {
+    public Optional<User> getUserById(final Integer userId) {
         return userDao.findById(userId);
     }
 
-    public Iterable<User> getAllUsers()
-    {
+    public Iterable<User> getAllUsers() {
         return userDao.findAll();
     }
 
-    public void deleteUser(final Integer userId)
-    {
+    public void deleteUser(final Integer userId) {
         userDao.deleteById(userId);
     }
 

@@ -15,7 +15,7 @@ import java.util.Optional;
 
 
 @RestController
-@RequestMapping("/")
+@RequestMapping("/user")
 public class UserController {
     @Autowired
     private UserService userService;
@@ -25,7 +25,7 @@ public class UserController {
         return userService.createUser(user);
     }
 
-    @GetMapping("/user/{userId}")
+    @GetMapping("/{userId}")
     public Optional<User> getUserById(@PathVariable("userId") Integer userId) {
         return userService.getUserById(userId);
     }

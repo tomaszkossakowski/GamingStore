@@ -10,10 +10,11 @@ import pl.gameStore.KurastBazaar.app.exceptions.RuneAlreadyExistException;
 
 import java.util.List;
 import java.util.Optional;
+
 @Service
 public class RuneServiceImpl implements RuneService {
 
-    private  final RuneDao runeDao;
+    private final RuneDao runeDao;
 
     @Autowired
     public RuneServiceImpl(final RuneDao runeDao) {

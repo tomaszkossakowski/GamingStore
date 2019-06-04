@@ -1,17 +1,18 @@
 package pl.gameStore.KurastBazaar.app.service.runes;
 
+import pl.gameStore.KurastBazaar.app.dto.RuneDto;
 import pl.gameStore.KurastBazaar.app.entities.Rune;
 
 import java.util.List;
 
 public interface RuneService {
-    Rune findBydId(final Long id);
+    RuneDto findById(final Long id);
 
-    Rune findBydName(final String name);
+    RuneDto findByName(final String name);
 
-    List<Rune> findAll();
+    List<RuneDto> findAll();
 
-    Rune create(final Rune rune);
+    RuneDto create(final Rune rune);
 
     void delete(final Long id);
 

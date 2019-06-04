@@ -3,13 +3,15 @@ package pl.gameStore.KurastBazaar.app.service.runes;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import pl.gameStore.KurastBazaar.app.dao.RuneDao;
+import pl.gameStore.KurastBazaar.app.dto.RuneDto;
 import pl.gameStore.KurastBazaar.app.entities.Rune;
 import pl.gameStore.KurastBazaar.app.exceptions.InvalidRuneIdException;
 import pl.gameStore.KurastBazaar.app.exceptions.InvalidRuneNameException;
-import pl.gameStore.KurastBazaar.app.exceptions.RuneAlreadyExistException;
+import pl.gameStore.KurastBazaar.app.mapper.Mapper;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 public class RuneServiceImpl implements RuneService {
@@ -22,24 +24,23 @@ public class RuneServiceImpl implements RuneService {
     }
 
     @Override
-    public Rune findBydId(final Long id) {
+    public RuneDto findById(final Long id) {
         Optional<Rune> rune = runeDao.findById(id);
-        return rune.orElseThrow(InvalidRuneIdException::new);
+        return Mapper.INSTANCE.runeDto(rune.orElseThrow(InvalidRuneIdException::new));
 
     }
 
     @Override
-    public Rune findBydName(final String name) {
-        Rune rune = runeDao.findByName(name);
-        if (!rune.getName().isEmpty()) {
-            return rune;
-        } else throw new InvalidRuneNameException();
-
+    public RuneDto findByName(final String name) {
+        return Mapper.INSTANCE.runeDto(runeDao.findByName(name));
     }
 
     @Override
-    public List<Rune> findAll() {
-        return runeDao.findAll();
+    public List<RuneDto> findAll() {
+        return runeDao.findAll()
+                .stream()
+                .map(Mapper.INSTANCE::runeDto)
+                .collect(Collectors.toList());
     }
 
     @Override
@@ -63,10 +64,7 @@ public class RuneServiceImpl implements RuneService {
     }
 
     @Override
-    public Rune create(final Rune rune) {
-        if (!rune.getName().equals(runeDao.findByName(rune.getName()))) {
-            return runeDao.save(rune);
-
-        } else throw new RuneAlreadyExistException();
+    public RuneDto create(final Rune rune) {
+        return Mapper.INSTANCE.runeDto(runeDao.save(rune));
     }
 }

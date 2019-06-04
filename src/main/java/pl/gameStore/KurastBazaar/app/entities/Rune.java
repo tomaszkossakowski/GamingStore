@@ -18,9 +18,10 @@ public class Rune {
     @NotEmpty
     @Column(unique = true)
     private String name;
+    private int minimumLvl;
     private String weaponBuff;
     private String shieldBuff;
     private String armourBuff;
-    private int price;
+
 
 }

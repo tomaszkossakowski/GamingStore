@@ -23,5 +23,4 @@ public class Rune {
     private String shieldBuff;
     private String armourBuff;
 
-
 }

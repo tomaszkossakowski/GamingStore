@@ -1,0 +1,35 @@
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Lista Run</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+</head>
+<body>
+<h1>Lista Run</h1>
+<table class="table">
+    <thead class="thead-dark">
+    <tr>
+        <th scope="col">Name</th>
+        <th scope="col">minimum Lvl</th>
+        <th scope="col">weapon Buff</th>
+        <th scope="col">shieldBuff</th>
+        <th scope="col">armourBuff</th>
+        <th scope="col">Action</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each = "s :${runes}">
+        <td th:text="${s.name}" scope="row"></td>
+        <td th:text="${s.minimumLvl}"></td>
+        <td th:text="${s.weaponBuff}"></td>
+        <td th:text="${s.shieldBuff}"></td>
+        <td th:text="${s.armourBuff}"></td>
+    </tr>
+    </tbody>
+</table>
+
+</body>
+<html>

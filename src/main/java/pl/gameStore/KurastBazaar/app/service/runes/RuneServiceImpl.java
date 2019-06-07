@@ -43,19 +43,6 @@ public class RuneServiceImpl implements RuneService {
 
     @Override
     public List<RuneDto> findAll() {
-//
-//        List<Rune> asd = runeDao.findAll();
-//        for (Rune rune : asd) {
-//            System.out.println(rune.getSource());
-//        }
-//
-//        List<RuneDto> asdd = runeDao.findAll()
-//                .stream()
-//                .map(Mapper.INSTANCE::runeDto)
-//                .collect(Collectors.toList());
-//        for (RuneDto runeDto : asdd) {
-//            System.out.println(runeDto.getSource());
-//        }
         return runeDao.findAll()
                 .stream()
                 .map(Mapper.INSTANCE::runeDto)

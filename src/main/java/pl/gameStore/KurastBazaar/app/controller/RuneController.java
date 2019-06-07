@@ -26,7 +26,7 @@ public class RuneController {
     }
 
     @GetMapping("")
-    public String showAllPlayers(final Model model) {
+    public String showAllRunes(final Model model) {
         if (runeService.findAll().isEmpty()) {
             runeService.findAll();
         }
@@ -54,7 +54,6 @@ public class RuneController {
     }
 
     @DeleteMapping("/deleteRuneById/{id}")
-    @ResponseBody
     public String deleteRuneById(@PathVariable Long id) {
         RuneDto rune = runeService.findById(id);
         runeService.delete(id);
@@ -62,7 +61,6 @@ public class RuneController {
     }
 
     @DeleteMapping("/deleteRuneByName/{name}")
-    @ResponseBody
     public String deleteRuneByName(@PathVariable String name) {
         RuneDto rune = runeService.findByName(name);
         runeService.deleteByName(name);

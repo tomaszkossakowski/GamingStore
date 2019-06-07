@@ -22,5 +22,6 @@ public class Rune {
     private String weaponBuff;
     private String shieldBuff;
     private String armourBuff;
+    private String source;
 
 }
